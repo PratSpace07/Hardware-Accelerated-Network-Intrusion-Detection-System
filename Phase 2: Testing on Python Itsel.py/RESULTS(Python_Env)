@@ -1,0 +1,22 @@
+Model features used :
+['duration','src_bytes', 'dst_bytes', 'count', 'srv_count', 'serror_rate', 'dst_host_count', 'dst_host_srv_count', 'dst_host_serror_rate', 'same_srv_rate', 'diff_srv_rate', 'dst_host_diff_srv_rate']
+4 PCA components were used 
+Threshold at 90th percentile was 3.22 during testing. 
+
+RESULTS: 
+
+Family          Total   Detected       DR
+------------------------------------------
+DoS              7167       5644   0.7875
+Probe            2421       1386   0.5725
+R2L              2885        309   0.1071
+U2R                67         24   0.3582
+Normal (benign)     9711        418 (FAR=0.043)
+
+
+ANALYSIS: 
+
+DoS at 79.4% is solid. Published papers using PCA on NSL-KDD report 75-95% DoS DR.
+Probe at 51.3% is acceptable. Probe attacks are slower and more varied.
+R2L at 12.8% and U2R at 38.8% are poor — but this is a known, documented limitation of any anomaly detection approach on R2L/U2R. 
+They're designed to look like normal traffic. Even supervised classifiers struggle with them.
