@@ -1,1 +1,11 @@
+Used the NSL KDD Dataset for training that has the following Intrusions : 
+1) Denial of Service (DoS)
+2) Probe
+3) User To Root (U2R) 
+4) Remote to Local (R2L) 
+
+This has to be noted that, knowledge of this information does not make it a supervided Learning Model. PCA script is an unsupervised anomaly detector. 
+It does not read or use these attack labels during the training phase.
+It only looks at the numerical features (duration, bytes, counts, rates) to learn the statistical pattern of "normal" traffic.
+It calculates a reconstruction error threshold based on this "normal" pattern.
 
